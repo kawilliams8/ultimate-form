@@ -4,6 +4,7 @@ import { MainContainer } from './components/MainContainer';
 import { Form } from './components/Form';
 import { Input } from './components/Input';
 import { PrimaryButton } from './components/PrimaryButton';
+import Typography from "@material-ui/core/Typography";
 
 export const Step1 = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -15,20 +16,12 @@ export const Step1 = () => {
 
   return (
     <MainContainer>
-      <h2>Step 1</h2>
+      <Typography component="h2" variant="h5">
+        👩‍💻 Step 1 👩‍💻
+      </Typography>
       <Form>
-        <Input
-          ref={register}
-          name="firstName"
-          type="text"
-          label="First Name"
-        />
-        <Input
-          ref={register}
-          name="lastName"
-          type="text"
-          label="Last Name"
-        />
+        <Input ref={register} name="firstName" type="text" label="First Name" />
+        <Input ref={register} name="lastName" type="text" label="Last Name" />
         <PrimaryButton type="submit">Next</PrimaryButton>
       </Form>
     </MainContainer>
