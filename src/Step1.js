@@ -2,6 +2,7 @@ import { useForm } from 'react-hook-form';
 import { useHistory } from 'react-router-dom';
 import { MainContainer } from './components/MainContainer';
 import { Form } from './components/Form';
+import { Input } from './components/Input';
 
 export const Step1 = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -15,13 +16,13 @@ export const Step1 = () => {
     <MainContainer>
       <h2>Step 1</h2>
       <Form>
-        <input
+        <Input
           ref={register}
           name="firstName"
           type="text"
           placeholder="First Name"
         />
-        <input
+        <Input
           ref={register}
           name="lastName"
           type="text"
