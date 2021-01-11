@@ -3,6 +3,7 @@ import { useHistory } from 'react-router-dom';
 import { MainContainer } from './components/MainContainer';
 import { Form } from './components/Form';
 import { Input } from './components/Input';
+import { PrimaryButton } from './components/PrimaryButton';
 
 export const Step1 = () => {
   const { register, handleSubmit, errors } = useForm();
@@ -28,7 +29,7 @@ export const Step1 = () => {
           type="text"
           label="Last Name"
         />
-        <button type="submit">Next</button>
+        <PrimaryButton type="submit">Next</PrimaryButton>
       </Form>
     </MainContainer>
   );
