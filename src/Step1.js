@@ -5,6 +5,12 @@ import { Form } from './components/Form';
 import { Input } from './components/Input';
 import { PrimaryButton } from './components/PrimaryButton';
 import Typography from "@material-ui/core/Typography";
+import * as yup from 'yup';
+
+const schema = yup.object.shape({
+  firstName: yup.string().matches(/^([^0-9])$/, "First name cannot contain numbers").required("First name is required."),
+  lastName: yup.string().matches(/^([^0-9])$/, "Last name cannot contain numbers").required("Last name is required.")
+})
 
 export const Step1 = () => {
   const { register, handleSubmit, errors } = useForm();
