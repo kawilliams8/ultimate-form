@@ -13,7 +13,7 @@ const useStyles = makeStyles(theme => ({
   }
 }));
 
-export const header = () => {
+export const Header = () => {
   const styles = useStyles();
 
   return (
