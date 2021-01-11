@@ -20,13 +20,13 @@ export const Step1 = () => {
           ref={register}
           name="firstName"
           type="text"
-          placeholder="First Name"
+          label="First Name"
         />
         <Input
           ref={register}
           name="lastName"
           type="text"
-          placeholder="Last Name"
+          label="Last Name"
         />
         <button type="submit">Next</button>
       </Form>
