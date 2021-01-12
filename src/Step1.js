@@ -6,6 +6,7 @@ import { Input } from './components/Input';
 import { PrimaryButton } from './components/PrimaryButton';
 import Typography from '@material-ui/core/Typography';
 import { yupResolver } from '@hookform/resolvers/yup';
+import { useData } from './DataContext';
 import * as yup from 'yup';
 
 const schema = yup.object().shape({
@@ -14,14 +15,17 @@ const schema = yup.object().shape({
 })
 
 export const Step1 = () => {
+  const { setValues, data } = useData();
   const { register, handleSubmit, errors } = useForm({
+    defaultValues: { firstName: data.firstName, lastName: data.lastName },
     mode: "onBlur",
     resolver: yupResolver(schema)
   });
   const history = useHistory();
 
   const onSubmit = data => {
-    history.push("/step2")
+    history.push("/step2");
+    setValues(data);
   }
 
   return (
@@ -29,7 +33,7 @@ export const Step1 = () => {
       <Typography component="h2" variant="h5">
         👩‍💻 Step 1 👩‍💻
       </Typography>
-      <Form>
+      <Form onSubmit={handleSubmit(onSubmit)}>
         <Input ref={register} name="firstName" type="text" label="First Name" error={!!errors.firstName} helperText={errors?.firstName?.message}/>
         <Input ref={register} name="lastName" type="text" label="Last Name" error={!!errors.lastName} helperText={errors?.lastName?.message}/>
         <PrimaryButton type="submit">Next</PrimaryButton>
