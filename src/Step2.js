@@ -2,6 +2,7 @@ import React from "react";
 import { MainContainer } from "./components/MainContainer";
 import { Form } from "./components/Form";
 import { Input } from "./components/Input";
+import { PrimaryButton } from "./components/PrimaryButton";
 import { useData } from "./DataContext";
 import { useForm } from "react-hook-form";
 import { useHistory } from "react-router-dom";
@@ -72,6 +73,7 @@ export const Step2 = () => {
             label="Phone Number"
           />
         )}
+        <PrimaryButton>Next</PrimaryButton>
       </Form>
     </MainContainer>
   );
