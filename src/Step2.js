@@ -47,7 +47,9 @@ export const Step2 = () => {
 
   return (
     <MainContainer>
-      <Typography>👩‍💻 Step 2 👩‍💻</Typography>
+      <Typography component="h2" variant="h5">
+        👩‍💻 Step 2 👩‍💻
+      </Typography>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <Input
           ref={register}
@@ -77,9 +79,9 @@ export const Step2 = () => {
             id="phoneNumber"
             name="tel"
             label="Phone Number"
-            onChange={
-              event => {event.target.value = normalizePhoneNumber(event.target.value)}
-            }
+            onChange={(event) => {
+              event.target.value = normalizePhoneNumber(event.target.value);
+            }}
           />
         )}
         <PrimaryButton>Next</PrimaryButton>

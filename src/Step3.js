@@ -23,7 +23,7 @@ export const Step3 = () => {
 
   return (
     <MainContainer>
-      <Typography>👩‍💻 Step 3 👩‍💻</Typography>
+      <Typography component="h2" variant="h5">👩‍💻 Step 3 👩‍💻</Typography>
       <Form onSubmit={handleSubmit(onSubmit)}>
         <FileInput name="files" control={control}/>
         <PrimaryButton>Next</PrimaryButton>
