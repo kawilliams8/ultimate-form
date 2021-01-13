@@ -11,6 +11,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
+import parsePhoneNumberFromString from 'libphonenumber-js';
 
 const schema = yup.object().shape({
   email: yup
@@ -18,6 +19,11 @@ const schema = yup.object().shape({
     .email("Enter a correctly formatted email address.")
     .required("Email is a required field.")
 });
+
+const normalizePhoneNumber = value => {
+  const phoneNumber = parsePhoneNumberFromString(value);
+  return phoneNumber ? phoneNumber.formatInternational() : value;
+}
 
 export const Step2 = () => {
   const { data, setValues } = useData();
@@ -71,6 +77,9 @@ export const Step2 = () => {
             id="phoneNumber"
             name="tel"
             label="Phone Number"
+            onChange={
+              event => {event.target.value = normalizePhoneNumber(event.target.value)}
+            }
           />
         )}
         <PrimaryButton>Next</PrimaryButton>
