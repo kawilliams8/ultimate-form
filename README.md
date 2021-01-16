@@ -2,14 +2,18 @@
 
 This React App builds a multipage submission form, where users submit their name, email, optional phone number, and drag-and-drop files. All fields are validated with 'yup' resolvers, rendered with Material UI components and navigated through React Router. Data persists across views with built-in and custom hooks, and is POSTed to a local server. Styling comes from custom Material UI functions and Google Font files. Upon success, the user sees a colorful confetti screen.
 
-![screenshot1]('./screenshots/Screen Shot 2021-01-16 at 12.42.03 PM.png)
-![screenshot2]('./screenshots/Screen Shot 2021-01-16 at 12.42.38 PM.png)
-![screenshot3]('./screenshots/Screen Shot 2021-01-16 at 12.42.57 PM.png)
-![screenshot4]('./screenshots/Screen Shot 2021-01-16 at 12.43.10 PM.png)
-![screenshot5]('./screenshots/Screen Shot 2021-01-16 at 12.43.56 PM.png)
-![screenshot6]('./screenshots/Screen Shot 2021-01-16 at 12.44.07 PM.png)
+## Viewing the Ultimate Form
 
-This project was designed to include many of the most difficult and frustrating form building techniques by (Maksim Ivanov)[https://www.youtube.com/watch?v=U-iz8b4RExA].
+To play with the Ultimate Form, clone down this repository and `cd` into the main directory. Run `yarn install` to install the project and dev dependencies. Run `node server.js` to start the server, and look for the confirmation message that it is listening. Run `yarn start` to execute the react start script, then navigate a browser to http://localhost:3000 to see the app. After submitting the form with some test files, an /uploads directory will hold the POSTed form data as JSON, with your uploaded files.
+
+![screenshot1](https://github.com/kawilliams8/ultimate-form/blob/main/screenshots/Screen%20Shot%202021-01-16%20at%2012.42.03%20PM.png)
+![screenshot2](https://github.com/kawilliams8/ultimate-form/blob/main/screenshots/Screen%20Shot%202021-01-16%20at%2012.42.38%20PM.png)
+![screenshot3](https://github.com/kawilliams8/ultimate-form/blob/main/screenshots/Screen%20Shot%202021-01-16%20at%2012.42.57%20PM.png)
+![screenshot4](https://github.com/kawilliams8/ultimate-form/blob/main/screenshots/Screen%20Shot%202021-01-16%20at%2012.43.10%20PM.png)
+![screenshot5](https://github.com/kawilliams8/ultimate-form/blob/main/screenshots/Screen%20Shot%202021-01-16%20at%2012.43.56%20PM.png)
+![screenshot6](https://github.com/kawilliams8/ultimate-form/blob/main/screenshots/Screen%20Shot%202021-01-16%20at%2012.44.07%20PM.png)
+
+This project was designed to include many of the most difficult and frustrating form building techniques by [Maksim Ivanov](https://www.youtube.com/watch?v=U-iz8b4RExA).
 
 ## Getting Started with Create React App
 
