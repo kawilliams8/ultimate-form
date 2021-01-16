@@ -30,31 +30,33 @@ export const FileInput = ({ control, name }) => {
       control={control}
       name={name}
       defaultValue={[]}
-      render={(onChange, onBlur, value) => {
+      render={({ onChange, onBlur, value }) => (
         <>
           <Dropzone onDrop={onChange}>
             {({ getRootProps, getInputProps }) => (
-              <Paper className={styles.root} variant="outlined" {...getRootProps()}>
-                <CloudUpload className={styles.icon}/>
+              <Paper
+                variant="outlined"
+                className={styles.root}
+                {...getRootProps()}
+              >
+                <CloudUpload className={styles.icon} />
                 <input {...getInputProps()} name={name} onBlur={onBlur} />
                 <p>Drop files or click to select.</p>
               </Paper>
             )}
           </Dropzone>
           <List>
-            {value.map((file, index) => {
-              return (
-                <ListItem key={index}>
-                  <ListItemIcon>
-                    <InsertDriveFile />
-                  </ListItemIcon>
-                  <ListItemText primary={file.name} secondary={file.size} />
-                </ListItem>
-              );
-            })}
+            {value.map((file, index) => (
+              <ListItem key={index}>
+                <ListItemIcon>
+                  <InsertDriveFile />
+                </ListItemIcon>
+                <ListItemText primary={file.name} secondary={file.size} />
+              </ListItem>
+            ))}
           </List>
-        </>;
-      }}
+        </>
+      )}
     />
   );
 };
