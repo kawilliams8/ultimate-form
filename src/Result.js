@@ -5,6 +5,7 @@ import { List, ListItem, ListItemIcon, ListItemText, Paper } from '@material-ui/
 import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow  } from '@material-ui/core';
 import { PrimaryButton } from "./components/PrimaryButton";
 import { Link } from 'react-router-dom';
+import SweetAlert from 'sweetalert2';
 
 export const Result = () => {
   const { data } = useData();
@@ -12,6 +13,31 @@ export const Result = () => {
   const entries = Object.entries(data).filter(entry => entry[0] !== 'files');
   console.log(entries)
   const { files } = data;
+
+  const onSubmit = async () => {
+    const formData = new FormData();
+    const [success, setSuccess] = useState(false);
+    if (data.files) {
+      data.files.forEach(file => {
+        formData.append("files", file, file.name)
+      })
+    }
+
+    entries.forEach(entry => {
+      formData.append(entry[0], entry[1])
+    })
+
+    const options = {
+      method: "POST",
+      body: formData,
+    }
+
+    const response = await fetch("http://localhost:4000/", options);
+
+    if (response.status == 200) {
+      SweetAlert.fire('Success!', 'Challenged completed.', 'success');
+    }
+  }
 
   return (
     <MainContainer>
