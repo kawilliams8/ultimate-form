@@ -2,6 +2,10 @@
 
 This React App builds a multipage submission form, where users submit their name, email, optional phone number, and drag-and-drop files. All fields are validated with 'yup' resolvers, rendered with Material UI components and navigated through React Router. Data persists across views with built-in and custom hooks, and is POSTed to a local server. Styling comes from custom Material UI functions and Google Font files. Upon success, the user sees a colorful confetti screen.
 
+## Viewing the Ultimate Form
+
+To play with the Ultimate Form, clone down this repository and `cd` into the main directory. Run `yarn install` to install the project and dev dependencies. Run `node server.js` to start the server, and look for the confirmation message that it is listening. Run `yarn start` to execute the react start script, then navigate a browser to http://localhost:3000 to see the app. After submitting the form with some test files, an /uploads directory will hold the POSTed form data as JSON, with your uploaded files.
+
 ![screenshot1](https://github.com/kawilliams8/ultimate-form/blob/main/screenshots/Screen%20Shot%202021-01-16%20at%2012.42.03%20PM.png)
 ![screenshot2](https://github.com/kawilliams8/ultimate-form/blob/main/screenshots/Screen%20Shot%202021-01-16%20at%2012.42.38%20PM.png)
 ![screenshot3](https://github.com/kawilliams8/ultimate-form/blob/main/screenshots/Screen%20Shot%202021-01-16%20at%2012.42.57%20PM.png)
