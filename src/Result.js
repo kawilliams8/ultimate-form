@@ -1,42 +1,61 @@
-import React from "react";
-import { useData } from './DataContext';
-import { MainContainer } from './components/MainContainer';
-import { List, ListItem, ListItemIcon, ListItemText, Paper } from '@material-ui/core';
-import { Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow  } from '@material-ui/core';
+import React, { useState } from "react";
+import { useData } from "./DataContext";
+import { MainContainer } from "./components/MainContainer";
+import {
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Paper,
+} from "@material-ui/core";
+import {
+  Typography,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+} from "@material-ui/core";
 import { PrimaryButton } from "./components/PrimaryButton";
-import { Link } from 'react-router-dom';
-import SweetAlert from 'sweetalert2';
+import { Link } from "react-router-dom";
+import Swal from "sweetalert2";
+import Confetti from 'react-confetti';
 
 export const Result = () => {
+  const [success, setSuccess] = useState(false);
   const { data } = useData();
 
-  const entries = Object.entries(data).filter(entry => entry[0] !== 'files');
-  console.log(entries)
+  const entries = Object.entries(data).filter((entry) => entry[0] !== "files");
   const { files } = data;
 
   const onSubmit = async () => {
     const formData = new FormData();
-    const [success, setSuccess] = useState(false);
     if (data.files) {
-      data.files.forEach(file => {
-        formData.append("files", file, file.name)
-      })
+      data.files.forEach((file) => {
+        formData.append("files", file, file.name);
+      });
     }
 
-    entries.forEach(entry => {
-      formData.append(entry[0], entry[1])
-    })
+    entries.forEach((entry) => {
+      formData.append(entry[0], entry[1]);
+    });
 
     const options = {
       method: "POST",
       body: formData,
-    }
+    };
 
     const response = await fetch("http://localhost:4000/", options);
 
-    if (response.status == 200) {
-      SweetAlert.fire('Success!', 'Challenged completed.', 'success');
+    if (response.status === 200) {
+      Swal.fire("Success!", "You've completed the challenge.", "success");
+      setSuccess(true);
     }
+  };
+
+  if (success) {
+    return <Confetti />;
   }
 
   return (
@@ -68,10 +87,10 @@ export const Result = () => {
             🗄️ Files 🗄️
           </Typography>
           <List>
-            { files.map((file, index) => (
+            {files.map((file, index) => (
               <ListItem key={index}>
                 <ListItemIcon>
-                  <ListItemText primary={file.name} secondary={file.size}/>
+                  <ListItemText primary={file.name} secondary={file.size} />
                 </ListItemIcon>
               </ListItem>
             ))}
@@ -79,7 +98,7 @@ export const Result = () => {
         </>
       )}
       <PrimaryButton onClick={onSubmit}>Submit</PrimaryButton>
-      <Link to='/'>StartOver</Link>
+      <Link to="/">StartOver</Link>
     </MainContainer>
   );
 };
