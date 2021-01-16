@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemIcon,
   ListItemText,
+  makeStyles,
   Paper,
 } from "@material-ui/core";
 import {
@@ -22,9 +23,19 @@ import { Link } from "react-router-dom";
 import Swal from "sweetalert2";
 import Confetti from 'react-confetti';
 
+const useStyles = makeStyles({
+  root: {
+    marginBottom: '30px'
+  },
+  table: {
+    marginBottom: '30px'
+  }
+})
+
 export const Result = () => {
   const [success, setSuccess] = useState(false);
   const { data } = useData();
+  const styles = useStyles();
 
   const entries = Object.entries(data).filter((entry) => entry[0] !== "files");
   const { files } = data;
@@ -63,8 +74,8 @@ export const Result = () => {
       <Typography component="h2" variant="h5">
         👩‍💻 Form Values 👩‍💻
       </Typography>
-      <TableContainer component={Paper}>
-        <Table>
+      <TableContainer className={styles.root} component={Paper}>
+        <Table className={styles.table}>
           <TableHead>
             <TableRow>
               <TableCell>Field</TableCell>
