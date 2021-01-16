@@ -1,11 +1,12 @@
 import React from "react";
 import { MainContainer } from './components/MainContainer';
 import { Form } from './components/Form';
-import { FormInput } from './components/FormInput';
+import { FileInput } from './components/FileInput';
 import { PrimaryButton } from './components/PrimaryButton';
 import Typography from '@material-ui/core/Typography';
 import { useHistory } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
+import { useData } from "./DataContext";
 
 export const Step3 = () => {
   const history = useHistory()
